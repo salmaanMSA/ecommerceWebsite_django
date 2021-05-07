@@ -1,0 +1,82 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+{% block title%}Register Account{%endblock%}
+
+{% block content %}
+
+
+<div class="row" >
+    <div class="col-md-4"  ></div>
+    <div class="col-md-4"  ><br>
+<div class="card mt-5" >
+    <div class="card-body" >
+        <div class="card-title py-2" >
+        <div class="d-flex justify-content-center"><h3><b>Register an account</b></h3>
+        </div>
+        </div>
+
+        <form action="" method="POST">
+
+            {% csrf_token %}
+
+            {% include 'messages.html' %}
+
+            <div class="form-group">
+                <input type="text" name="first_name" placeholder="First Name" class="form-control form-control-sm"
+                id="first_nameField" value="{{fieldValues.first_name}}">
+            </div>
+            <div class="first_nameFeedBackArea" style="display:none">
+
+            </div>
+            <p class="text-sm text-success firstnameSuccessOutput"></p>
+
+            <div class="form-group">
+                <input type="text" name="last_name" placeholder="Last Name" class="form-control form-control-sm"
+                id="last_nameField" value="{{fieldValues.last_name}}">
+            </div>
+            <div class="last_nameFeedBackArea" style="display:none">
+
+            </div>
+            <p class="text-sm text-success lastnameSuccessOutput"></p>
+
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" class="form-control form-control-sm"
+                id="emailField" value="{{fieldValues.email}}">
+            </div>
+            <div class="emailFeedBackArea" style="display:none">
+
+            </div>
+            <p class="text-sm text-success emailSuccessOutput"></p>
+
+            <div class="form-group">
+                <input type="text" name="mobile_no" placeholder="Mobile Number" class="form-control form-control-sm"
+                id="mobile_noField" value="{{fieldValues.mobile_no}}">
+            </div>
+            <div class="mobile_noFeedBackArea" style="display:none">
+
+            </div>
+            <p class="text-sm text-success mobile_noSuccessOutput"></p>
+
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password"
+                 class="form-control form-control-sm" id="passwordField" value="{{fieldValues.password}}">
+                <small class="float-right py-3 showPasswordToggle">SHOW</small>
+            </div>
+
+            <input type="submit" name="submit" value="Register" class="btn btn-block btn-primary submit-btn">
+
+        </form>
+            <div class="container">
+            <span class="text-lead"> Forget Password..? </span><a href="#">Reset Password</a>
+        </div>
+    </div>
+    </div>
+</div>
+
+    </div>
+
+
+
+<script src="{% static 'js/register.js' %}"></script>
+
+{% endblock content %}

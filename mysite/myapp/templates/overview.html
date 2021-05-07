@@ -1,0 +1,254 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Tesark.com</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+      }
+
+      body {
+<!--        padding: 5rem 5rem 10rem;-->
+        line-height: 1.7;
+        font-family: 'Nunito Sans', sans-serif;
+        color: #555;
+        min-height: 100vh;
+        background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+      }
+
+      h1 {
+        font-family: 'Megrim', sans-serif;
+        font-size: 6rem;
+        color: white;
+        transform: skewY(-5deg);
+        text-align: center;
+        position: relative;
+        word-spacing: 3px;
+      }
+
+      h1::before {
+        content: '';
+        display: block;
+        height: 65%;
+        width: 49%;
+        position: absolute;
+        top: 105%;
+        left: 50%;
+        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        opacity: 0.8;
+        z-index: -1;
+<!--        transform: skewY(370deg) translate(-50%, -50%);-->
+      }
+
+      .container {
+        width: 95rem;
+        margin: 0 auto;
+      }
+
+      .cards-container {
+        margin-top: 8rem;
+      }
+
+      .card {
+        background: white;
+        box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
+        margin-bottom: 5rem;
+<!--        transform: skewX(-20deg);-->
+        display: flex;
+        transition: all 0.5s;
+      }
+
+      .card__emoji {
+        font-size: 4.5rem;
+        line-height: 1.2;
+        padding: 1.5rem 6rem 0.5rem 1.5rem;
+        letter-spacing: -4rem;
+<!--        transform: skewX(20deg);-->
+      }
+
+      .card__title-box {
+        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        padding: 0 3rem;
+      }
+
+      .card__title {
+        font-family: 'Megrim', sans-serif;
+        color: white;
+        font-size: 3.25rem;
+<!--        transform: skewX(20deg);-->
+      }
+
+      .card__details {
+        display: flex;
+      }
+
+      .card__detail-box {
+        align-self: stretch;
+        border-right: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+      }
+
+      .card__detail-box:last-child {
+        border: none;
+      }
+
+      .card__detail {
+        font-weight: 400;
+        font-size: 1.8rem;
+        transform: skewX(10deg);
+        padding: 1.75rem;
+      }
+
+      .card__detail--organic {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 1.9rem;
+        background-image: linear-gradient(to right, #9be15d, #00e3ae);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .card__detail--price {
+        font-weight: 900;
+        font-size: 1.9rem;
+      }
+
+      .card__link:link,
+      .card__link:visited {
+        flex: 0 0 auto;
+        background-color: #79e17b;
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 2.5rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+
+      .card__link:hover,
+      .card__link:active {
+        background-color: #9be15d;
+      }
+
+      .card__link span {
+        transform: skewX(20deg);
+      }
+
+      .card:hover {
+<!--        transform: skewX(-20deg) scale(1.08);-->
+        box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.15);
+      }
+
+      .emoji-left {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+
+      .emoji-right {
+        font-size: 2rem;
+        margin-left: 1rem;
+      }
+
+      .not-organic {
+        display: none;
+      }
+
+    </style>
+  </head>
+<body>
+{% block body%}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">
+  <a class="navbar-brand" href="#"><h2>Tesark.com</h2></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><h5>Home</h5><span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <h2 class="btn btn-outline-warning my-2 my-sm-2 mr-1 btn-lg mr-3">User: {{request.user}}</h2>
+      <a href="{% url 'loginView' %}" class="btn btn-danger my-2 my-sm-2 mr-3 btn-lg">Logout</a>
+      <a href="{% url 'cart' %}" class="btn btn-outline-danger my-2 my-sm-2 mr-1 btn-lg">
+        <i class="fa fa-shopping-cart" style="font-size:20px;color:yellow"></i>
+      </a>
+    </form>
+  </div>
+</nav>
+{% endblock %}
+<h2>{% include 'messages.html' %}</h2>
+      <div class="container">
+
+        {% for i in product %}
+        <div class="cards-container">
+
+
+          <figure class="card">
+            <div class="card__emoji"><img src='/media/{{i.product_image}}' style="border-style:double"></div><div class="card__title-box">
+              <h2 class="card__title">{{i.product_name}}</h2>
+            </div>
+
+            <div class="card__details">
+            <div class="card__detail-box">
+              <h6 class="card__detail card__detail--organic">{{i.product_desc|slice:"0:80"}}...</h6>
+            </div>
+            <div class="card__detail-box">
+              <h6 class="card__detail card__detail--price">Rs.{{i.product_price}}</h6>
+            </div>
+            </div>
+
+            <a class="card__link" href="/product/{{i.id}}/" >
+              <span>Detail <i class="emoji-right">👉</i></span>
+            </a>
+        </figure>
+          {%endfor%}
+
+
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+  </body>
+</html>
